@@ -1,0 +1,38 @@
+{
+    "name": "jcergolj/after-action-redirect-pagination-url-for-laravel",
+    "description": "After CREATE, UPDATE or DELETE action paginated redirect url for laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Janez Cergolj",
+            "email": "me@jcergolj.me.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+     "autoload": {
+      "psr-4": {
+        "Jcergolj\\AfterActionRedirectUrlForLaravel\\": "src/",
+        "Jcergolj\\AfterActionRedirectUrlForLaravel\\Tests\\": "tests/"
+      },
+      "files": ["src/helpers.php"]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jcergolj\\AfterActionRedirectUrlForLaravel\\AfterActionRedirectUrlForLaravelServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "pint": "vendor/bin/pint",
+        "analyse": [
+            "@pint"
+        ]
+    },
+    "require-dev": {
+        "laravel/pint": "^1.9",
+        "phpunit/phpunit": "^10.1",
+        "orchestra/testbench": "^8.5"
+    }
+}
