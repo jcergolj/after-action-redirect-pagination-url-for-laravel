@@ -2,9 +2,11 @@
 
 namespace Jcergolj\AfterActionRedirectUrlForLaravel;
 
+use Illuminate\Routing\Redirector;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Jcergolj\AfterActionRedirectUrlForLaravel\Http\Middleware\SetIntendedUrlMiddleware;
+use Jcergolj\AfterActionRedirectUrlForLaravel\Macros\Redirector as MacroRedirector;
 use ReflectionClass;
 
 class AfterActionRedirectUrlForLaravelServiceProvider extends ServiceProvider
@@ -21,6 +23,8 @@ class AfterActionRedirectUrlForLaravelServiceProvider extends ServiceProvider
                 SetIntendedUrlMiddleware::class
             );
         }
+
+        Redirector::mixin(new MacroRedirector());
     }
 
     public function register()

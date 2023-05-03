@@ -19,7 +19,6 @@ class SetIntendedUrlMiddlewareTest extends TestCase
         $request->setRouteResolver(function () use ($request) {
             $route = new Route('GET', 'users', [
                 'as' => 'users.index',
-                'prefix' => 'http://dsfaasf',
             ]);
 
             $route->bind($request);
