@@ -2,8 +2,8 @@
 
 namespace Jcergolj\AfterActionRedirectUrlForLaravel;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Routing\Redirector;
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Jcergolj\AfterActionRedirectUrlForLaravel\Http\Middleware\SetIntendedUrlMiddleware;
 use Jcergolj\AfterActionRedirectUrlForLaravel\Macros\Redirector as MacroRedirector;
@@ -11,14 +11,12 @@ use ReflectionClass;
 
 class AfterActionRedirectUrlForLaravelServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(Kernel $kernel)
     {
-        $router = $this->app->make(Router::class);
-
         if (class_exists(\App\Http\Middleware\SetIntendedUrlMiddleware::class) && $this->isSubclass()) {
-            $router->pushMiddlewareToGroup('web', \App\Http\Middleware\SetIntendedUrlMiddleware::class);
+            $kernel->appendMiddlewareToGroup('web', \App\Http\Middleware\SetIntendedUrlMiddleware::class);
         } else {
-            $router->pushMiddlewareToGroup(
+            $kernel->appendMiddlewareToGroup(
                 'web',
                 SetIntendedUrlMiddleware::class
             );

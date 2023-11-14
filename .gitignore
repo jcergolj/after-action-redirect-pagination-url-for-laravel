@@ -23,3 +23,4 @@ Homestead.json
 .phpunit.result.cache
 .phpunit.cache
 /.phpunit.cache
+.packages.code-workspace
