@@ -1,4 +1,7 @@
 ### Why
+[![Watch the video](https://img.youtube.com/vi/dEjAKUDgt3U/hqdefault.jpg)](https://www.youtube.com/embed/dEjAKUDgt3U)
+
+
 The After Action Redirect Pagination URL for Laravel package provides a solution for two issues that developers may encounter when working with pagination in their Laravel application. These issues include [losing query parameters and the current page when editing an item and being redirected to the first page of the index](#saving-and-redirecting-to-last-index-url-with-query-parameters), as well as being [redirected to an empty last page after deleting the last item on the last page](#redirect-to-last-page-with-items-after-deleting-last-item-on-last-page).
 
 ### Installation
