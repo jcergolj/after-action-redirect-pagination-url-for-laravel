@@ -10,8 +10,10 @@ if (! function_exists('to_intended_route')) {
      * @param  bool|null  $secure
      * @return \Illuminate\Http\RedirectResponse
      */
-    function to_intended_route($route, $status = 302, $headers = [], $secure = null)
+    function to_intended_route($default, $status = 302, $headers = [], $secure = null)
     {
-        return redirect()->intended(route($route), $status, $headers, $secure);
+        $path = redirect()->getIntendedUrl() ?? route($default);
+
+        return redirect()->to($path, $status, $headers, $secure);
     }
 }
