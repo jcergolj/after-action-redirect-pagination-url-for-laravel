@@ -16,4 +16,17 @@ if (! function_exists('to_intended_route')) {
 
         return redirect()->to($path, $status, $headers, $secure);
     }
+
+    if (! function_exists('set_intended_route')) {
+        /**
+         * Set intended url.
+         *
+         * @param  string  $route
+         * @return \Illuminate\Http\RedirectResponse
+         */
+        function set_intended_route(string $route): void
+        {
+            redirect()->setIntendedUrl(route($route));
+        }
+    }
 }
