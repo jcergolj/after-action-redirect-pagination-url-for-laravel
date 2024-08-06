@@ -8,11 +8,12 @@ if (! function_exists('to_intended_route')) {
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
+     * @param  string  $urlSuffix
      * @return \Illuminate\Http\RedirectResponse
      */
-    function to_intended_route($default, $status = 302, $headers = [], $secure = null)
+    function to_intended_route($default, $status = 302, $headers = [], $secure = null, $urlSuffix = '')
     {
-        $path = redirect()->getIntendedUrl() ?? route($default);
+        $path = redirect()->getIntendedUrl().$urlSuffix ?? route($default);
 
         return redirect()->to($path, $status, $headers, $secure);
     }
@@ -29,4 +30,5 @@ if (! function_exists('to_intended_route')) {
             redirect()->setIntendedUrl(route($route));
         }
     }
+
 }

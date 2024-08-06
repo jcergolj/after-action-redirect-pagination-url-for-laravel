@@ -1,0 +1,10 @@
+cd PHPUnit 10.1.2 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 8.2.19
+Configuration: /home/jcergolj/work/projects/packages/after-action-redirect-pagination-url-for-laravel/phpunit.xml
+
+............                                                      12 / 12 (100%)
+
+Time: 00:00.130, Memory: 20.00 MB
+
+OK (12 tests, 21 assertions)
