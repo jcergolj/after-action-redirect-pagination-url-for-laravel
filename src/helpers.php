@@ -13,7 +13,7 @@ if (! function_exists('to_intended_route')) {
      */
     function to_intended_route($default, $status = 302, $headers = [], $secure = null, $urlSuffix = '')
     {
-        $path = redirect()->getIntendedUrl().$urlSuffix ?? route($default);
+        $path = redirect()->getIntendedUrl().$urlSuffix ?: route($default);
 
         return redirect()->to($path, $status, $headers, $secure);
     }
